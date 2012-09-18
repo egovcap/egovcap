@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://schema.egovframe.org/egovcap"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:tool="http://www.springframework.org/schema/tool"
+	targetNamespace="http://schema.egovframe.org/egovcap"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:import namespace="http://www.springframework.org/schema/beans" />
+	<xsd:import namespace="http://www.springframework.org/schema/tool" />
+	
+	<xsd:complexType name="scriptType">
+		<xsd:attribute name="location" type="xsd:string">
+		</xsd:attribute>
+		<xsd:attribute name="table" type="xsd:string" use="optional">
+		</xsd:attribute>
+		<xsd:attribute name="version" type="xsd:integer" use="optional">
+		</xsd:attribute>
+		<xsd:attribute name="sql" type="xsd:string" use="optional">
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:element name="data-source">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="script" type="scriptType" minOccurs="0" maxOccurs="unbounded">
+				</xsd:element> 
+			</xsd:sequence>
+			<xsd:attribute name="service-name" type="xsd:string" use="optional">
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>
